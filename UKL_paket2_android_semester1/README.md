@@ -1,5 +1,7 @@
 UKL_paket2_android_semester1
 
+UKL_paket2android_26_XIR3_OrlaQadiraW
+
 SS UKL Cinepolis
 
 Splash Screen page
