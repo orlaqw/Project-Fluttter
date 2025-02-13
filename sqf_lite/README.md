@@ -1,10 +1,13 @@
-![WhatsApp Image 2025-02-13 at 17 46 13](https://github.com/user-attachments/assets/a8558652-3f82-42e7-a3cf-b21e4bb2473f)
 
 
-![WhatsApp Image 2025-02-13 at 17 46 13 (1)](https://github.com/user-attachments/assets/82560787-d756-49a6-980a-9cedca3dc8ee)
+![WhatsApp Image 2025-02-13 at 22 07 25](https://github.com/user-attachments/assets/69172da2-0e45-4dd0-b03e-9825756fbdef)
 
 
-![WhatsApp Image 2025-02-13 at 17 46 14](https://github.com/user-attachments/assets/e537bd19-c9bf-414e-95fd-a54130b51cdd)
+![WhatsApp Image 2025-02-13 at 22 07 24](https://github.com/user-attachments/assets/975804ed-df7b-4a86-acb4-0c8e9de50e60)
 
 
-Menambahkan fitur note dan centang pada card
+![WhatsApp Image 2025-02-13 at 22 07 24 (1)](https://github.com/user-attachments/assets/770705a1-eb55-4ac8-833c-9609bdbb63c9)
+
+
+
+Menambahkan fitur note, centang dan memberi gambar dari galeri hp
