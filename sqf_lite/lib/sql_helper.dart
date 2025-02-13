@@ -7,14 +7,15 @@ class SQLHelper {
         title TEXT,
         description TEXT,
         note TEXT,
-        isCompleted INTEGER
+        isCompleted INTEGER,
+        imagePath TEXT
       )
       """);
   }
 
   static Future<sql.Database> db() async {
     return sql.openDatabase(
-      'dbitems.db',
+      'db.sqlite',
       version: 1,
       onCreate: (sql.Database database, int version) async {
         await createTables(database);
@@ -22,43 +23,29 @@ class SQLHelper {
     );
   }
 
-  // Create new item
-  static Future<int> createItem(String title, String? description, String? note) async {
+  static Future<int> createItem(String title, String? descr, String? note, String? imagePath) async {
     final db = await SQLHelper.db();
 
-    final data = {'title': title, 'description': description, 'note': note, 'isCompleted': 0};
+    final data = {'title': title, 'description': descr, 'note': note, 'isCompleted': 0, 'imagePath': imagePath};
     final id = await db.insert('items', data, conflictAlgorithm: sql.ConflictAlgorithm.replace);
     return id;
   }
 
-  // Read all items
-  static Future<List<Map<String, dynamic>>> getItems() async {
-    final db = await SQLHelper.db();
-    return db.query('items', orderBy: "id");
-  }
-
-  // Read a single item by id
-  static Future<List<Map<String, dynamic>>> getItem(int id) async {
-    final db = await SQLHelper.db();
-    return db.query('items', where: "id = ?", whereArgs: [id], limit: 1);
-  }
-
-  // Update an item by id
-  static Future<int> updateItem(int id, String title, String? description, String? note, int isCompleted) async {
+  static Future<int> updateItem(int id, String title, String? descr, String? note, int isCompleted, String? imagePath) async {
     final db = await SQLHelper.db();
 
     final data = {
       'title': title,
-      'description': description,
+      'description': descr,
       'note': note,
       'isCompleted': isCompleted,
+      'imagePath': imagePath,
     };
 
-    final result = await db.update('items', data, where: "id = ?", whereArgs: [id]);
+    final result = await db.update('items', data, where: 'id = ?', whereArgs: [id]);
     return result;
   }
 
-  // Delete an item by id
   static Future<void> deleteItem(int id) async {
     final db = await SQLHelper.db();
     try {
@@ -66,5 +53,10 @@ class SQLHelper {
     } catch (err) {
       print("Something went wrong when deleting an item: $err");
     }
+  }
+
+  static Future<List<Map<String, dynamic>>> getItems() async {
+    final db = await SQLHelper.db();
+    return db.query('items', orderBy: "id");
   }
 }
